@@ -1,107 +1,148 @@
-*{
+/* Global Reset */
+* {
     margin: 0;
     padding: 0;
-    border: 0 solid #e5e7eb;;
+    border: 0 solid #e5e7eb;
     box-sizing: border-box;
 }
-body{
-    height:100%;
-    width:100%;
-    --tw-bg-opacity: 1;
-    background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f9fa, #e3e5e8);
 }
-.don{
+
+/* Container Styles */
+.don {
     overflow-x: hidden;
     position: relative;
-    width: 100%;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #f5f7fa;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+    transition: all 0.3s ease;
 }
-.para{
-    background-color: #fff;
-    height:35px;
-    width:100%;
-    position: relative;
-    border-bottom:1px solid rgb(250 250 250 / var(--tw-bg-opacity)) ;
-}
-.box{
-    width:100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-h1{
-    --tw-text-opacity: 1;
-    color: rgb(31 41 55 / var(--tw-text-opacity));
+
+/* Title Styles */
+h1 {
+    color: rgba(31, 41, 55, 1);
     font-weight: 700;
-    letter-spacing: -.01em;
+    letter-spacing: -0.01em;
     line-height: 1.33em;
     font-size: 2.3rem;
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;    
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     user-select: none;
+    animation: slideDown 0.8s ease;
 }
-.role{
-    color:black;
+
+h2 {
+    color: #4a5568;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.text-lg{
-    font-size:20px;
-    letter-spacing: -.01em;
-    line-height: 1.5em;
-    font-weight:50;
-    font-style: inherit;
-    font-family:  Arial, Helvetica, sans-serif;
-    font-stretch:normal;
-}
-p{
-    margin-block-start: 0.5em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-family: cursive;
-}
-.sharad{
-    /* background-color: #fff; */
-    /* height:40px; */
-    width:100%;
-    /* position: relative; */
-    display: block;
+
+h3 {
     font-size: 1.5em;
-    font-weight:bold;
-    unicode-bidi: isolate;
-    user-select: none;
-    border-radius: 10px;   
-    text-align: center;
-}
-h3{
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
-    unicode-bidi: isolate;
-    font-family:serif;
+    font-family: serif;
+    color: #2b3a42;
+    margin-top: 1rem; /* Space above the h3 */
+    margin-bottom: 0.5rem; /* Space below the h3 */
 }
-ul{
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-    unicode-bidi: isolate;
-}
-.task-list{
+
+/* Task List Styles */
+.task-list {
     list-style-type: none;
-    margin: 0;
     padding: 0;
-    border-top: 1px solid gray;
+    border-top: 1px solid #e5e7eb;
 }
-.task-list>li{
+
+.task-list > li {
     display: flex;
+    align-items: center; /* Center-align the content */
     line-height: 1.6;
-    border-bottom: 1px solid gray;
-    overflow: hidden;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem;
+    border-radius: 10px; /* Rounded corners for the list item */
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Transition for smooth hover effect */
 }
+
+/* Hover Animation for Task List Item */
+.task-list > li:hover {
+    transform: scale(1.02); /* Slightly scale the item */
+}
+
+/* Task Card Styles */
+.task {
+    background-color: #ffffff;
+    color: #007bff;
+    border-radius: 10px;
+    font-size: 1.11rem;
+    padding: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease; /* Transition for the task scaling */
+}
+
+.task-list > li:hover .task {
+    transform: scale(1.03); /* Scale up task card slightly on hover */
+}
+
+/* Icon Style */
+.task-list > li:before {
+    display: inline-block;
+    margin-right: 0.5rem; /* Space between icon and text */
+    font-family: 'Font Awesome 5 Free'; /* Assuming you use Font Awesome for icons */
+    font-weight: 900;
+    font-size: 1.2rem; /* Adjust icon size */
+    color: #007bff; /* Icon color */
+}
+
+
+
+/* Link Styles */
+.temp {
+    position: relative; /* Set position to relative for pseudo-element positioning */
+    color: #0056b3;
+    cursor: pointer;
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s ease; /* Color transition */
+}
+
+.temp::after {
+    content: ""; /* Pseudo-element for the underline */
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Positioning the underline */
+    width: 100%;
+    height: 2px; /* Thickness of the underline */
+    background-color: #d9534f; /* Underline color */
+    transform: scaleX(0); /* Initial scale to 0 (invisible) */
+    transition: transform 0.3s ease; /* Underline scale transition */
+}
+
+.temp:hover {
+    color: #d9534f; /* Change text color on hover */
+}
+
+.temp:hover::after {
+    transform: scaleX(1); /* Scale underline to full width on hover */
+}
+
+/* Task Card Styles */
+.task {
+    background-color: #ffffff;
+    color: #007bff;
+    border-radius: 10px;
+    font-size: 1.11rem;
+    padding: 0.5rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .task-list>.task:before {
     content: "\f15c";
 }
@@ -109,7 +150,7 @@ ul{
     display: inline-block;
     width: 44.8px;
     text-align: center;
-    font-family:'Font Awesome 5 Free';
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -117,76 +158,129 @@ ul{
     font-variant: normal;
     text-rendering: auto;
 }
-a:-webkit-any-link{
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
-}
-.singh{
-    /* background-color: #fff; */
-    /* height:40px; */
-    width:100%;
-    /* position: relative; */
-    display: block;
+
+/* Additional Styles */
+.singh, .sharad {
     font-size: 1.5em;
-    font-weight:bold;
-    unicode-bidi: isolate;
-    user-select: none;
-    /* border-radius: 10px;   */
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
+    font-weight: bold;
     text-align: center;
+    margin: 1.5rem 0;
+    color: #2f4f4f;
 }
-h2{
-    color: rgb(0, 0, 0);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.task{
-    background-color: #fff;
-    color: blue;
-    border-radius: 10px;
-    font-size: 1.11rem;
-}
-a:hover{
-    color:tomato;
-}
-.task-list{
-    border-radius: 10px;
-}
-.para1{
-    background-color: #fff;
-    height:35px;
-    width:100%;
-    position: relative;
-    border-bottom:1px solid rgb(250 250 250 / var(--tw-bg-opacity)) ;
-    color: black;
+
+.para1 {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #333333;
     font-family: cursive;
     user-select: none;
     text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 10px;
 }
-@media(width<=358px){
-    h1{
-        font-weight: 600;
-        font-size: 2.0rem;
+
+/* Social Links Styles */
+.social-links {
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center; /* Center align logos */
+}
+
+.social-logo {
+    width: 30px; /* Logo size */
+    height: 30px; /* Logo size */
+    margin: 0 5px;
+    transition: transform 0.2s; /* Smooth hover effect */
+}
+
+.social-logo:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .don {
+        width: 95%;
+        padding: 1.5rem;
     }
-    .text-lg{
-        font-size:15px;
-        font-family: Arial, Helvetica, sans-serif;
+    h1 {
+        font-size: 2rem;
     }
-    .singh{
+    .text-lg {
+        font-size: 18px;
+    }
+    .task-list > li {
+        font-size: 1rem;
+    }
+    .singh {
         font-size: 1.3rem;
     }
-    .task{
-        color:rgb(33, 32, 32);
-        font-size:1rem ;
+}
+
+@media (max-width: 768px) {
+    .don {
+        width: 95%;
+        padding: 1rem;
     }
-    .role{
-        color: tan;
+    h1 {
+        font-size: 1.8rem;
+    }
+    .text-lg {
+        font-size: 16px;
+    }
+    .singh {
+        font-size: 1.2rem;
     }
 }
-@media(width<=394px) {
-    .para-sf{
-        font-size: 19px;
-        font-weight: 600;
+
+@media (max-width: 576px) {
+    .don {
+        width: 90%;
+        padding: 0.8rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .text-lg {
+        font-size: 14px;
+    }
+    .singh {
+        font-size: 1.1rem;
+    }
+    .task {
+        font-size: 0.9rem;
+    }
+    .task-list {
+        padding-inline-start: 20px; /* Ensure padding for the task list */
+    }
+    .para1 {
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
